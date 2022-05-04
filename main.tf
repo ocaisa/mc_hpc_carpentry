@@ -24,7 +24,7 @@ module "aws" {
   instances = {
     mgmt  = { type = "t3.large",  count = 1, tags = ["mgmt", "puppet", "nfs"] },
     login = { type = "t3.medium", count = 1, tags = ["login", "public", "proxy"] },
-    node  = { type = "t3.medium", count = 2, tags = ["node", "spot"] }
+    node  = { type = "t3.medium", count = 2, tags = ["node"] }
   }
 
   volumes = {
@@ -46,6 +46,7 @@ module "aws" {
 
   # AWS specifics
   region            = "eu-central-1"
+  availability_zone  = "eu-central-1b"
 }
 
 output "accounts" {
