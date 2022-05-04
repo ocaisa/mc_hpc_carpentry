@@ -1,5 +1,12 @@
 terraform {
   required_version = ">= 1.1.0"
+  backend "remote" {
+    organization = "EESSI"
+
+    workspaces {
+      name = "AWS"
+    }
+  }
 }
 
 module "aws" {
